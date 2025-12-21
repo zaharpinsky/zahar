@@ -1,0 +1,219 @@
+# №1
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+result = 0
+for j in range(len(matrix[0])):
+    if all(matrix[i][j] % 2 == 1 for i in range(len(matrix))):
+        result = j + 1
+        break
+print(result)
+# №2
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+for row in matrix:
+    min_val = min(row)
+    max_val = max(row)
+    min_idx = row.index(min_val)
+    max_idx = row.index(max_val)
+    row[min_idx], row[max_idx] = row[max_idx], row[min_idx]
+print(matrix)
+# №3
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+flat = [elem for row in matrix for elem in row]
+min_elem, max_elem = min(flat), max(flat)
+min_row = max_row = -1
+for i, row in enumerate(matrix):
+    if min_elem in row:
+        min_row = i
+    if max_elem in row:
+        max_row = i
+if min_row != -1 and max_row != -1:
+    matrix[min_row], matrix[max_row] = matrix[max_row], matrix[min_row]
+print(matrix)
+# №4
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+matrix = matrix[::-1]
+print(matrix)
+# №5
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+flat = [elem for row in matrix for elem in row]
+min_elem = min(flat)
+for i, row in enumerate(matrix):
+    if min_elem in row:
+        del matrix[i]
+        break
+print(matrix)
+# №6
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+flat = [elem for row in matrix for elem in row]
+max_elem = max(flat)
+for j in range(len(matrix[0])):
+    if any(matrix[i][j] == max_elem for i in range(len(matrix))):
+        for row in matrix:
+            del row[j]
+        break
+print(matrix)
+# №7
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+for row in matrix:
+    row.reverse()
+print(matrix)
+# №8
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+flat = [elem for row in matrix for elem in row]
+max_elem = max(flat)
+for i, row in enumerate(matrix):
+    if max_elem in row:
+        matrix.insert(i, row[:])
+        break
+print(matrix)
+# №9
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+result = []
+for j in range(len(matrix[0])):
+    col = [matrix[i][j] for i in range(len(matrix))]
+    avg = sum(col) / len(col)
+    count = sum(1 for x in col if x > avg)
+    result.append(count)
+print(result)
+# №10
+M = int(input("Введите количество строк (четное число): "))
+N = int(input("Введите количество столбцов (четное число): "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+half_M, half_N = M // 2, N // 2
+for i in range(half_M):
+    for j in range(half_N):
+        matrix[i][j], matrix[i + half_M][j + half_N] = matrix[i + half_M][j + half_N], matrix[i][j]
+print(matrix)
+# №11
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+result = []
+for i in range(0, len(matrix), 2):
+    row = matrix[i]
+    avg = sum(row) / len(row)
+    result.append(avg)
+print(result)
+# №12
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+max_sum = -float('inf')
+max_idx = -1
+for i, row in enumerate(matrix):
+    row_sum = sum(row)
+    if row_sum > max_sum:
+        max_sum = row_sum
+        max_idx = i + 1
+print(max_idx, max_sum)
+# №13
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+flat = [elem for row in matrix for elem in row]
+min_elem = min(flat)
+for i, row in enumerate(matrix):
+    if min_elem in row:
+        matrix.insert(i, [0] * len(matrix[0]))
+        break
+print(matrix)
+# №14
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+result = 0
+for i in range(len(matrix) - 1, -1, -1):
+    if all(x % 2 == 0 for x in matrix[i]):
+        result = i + 1
+        break
+print(result)
+# №15
+M = int(input("Введите количество строк: "))
+N = int(input("Введите количество столбцов: "))
+matrix = []
+for i in range(M):
+    row = list(map(int, input(f"Введите строку {i+1} через пробел: ").split()))
+    matrix.append(row)
+
+positive_cols = []
+for j in range(len(matrix[0])):
+    if all(matrix[i][j] > 0 for i in range(len(matrix))):
+        positive_cols.append(j)
+if positive_cols:
+    last_positive = positive_cols[-1]
+    for i in range(len(matrix)):
+        matrix[i][0], matrix[i][last_positive] = matrix[i][last_positive], matrix[i][0]
+print(matrix)
