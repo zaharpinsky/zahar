@@ -1,0 +1,202 @@
+# №1
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+K = int(input("Введите K: "))
+L = int(input("Введите L: "))
+
+average = sum(lst[K - 1:L]) / (L - K + 1)
+print(f"Среднее арифметическое: {average}")
+# №2
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+K = int(input("Введите K: "))
+L = int(input("Введите L: "))
+
+total_sum = sum(lst) - sum(lst[K - 1:L])
+print(f"Сумма элементов кроме K-L: {total_sum}")
+# №3
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+K = int(input("Введите K: "))
+L = int(input("Введите L: "))
+
+total_sum = sum(lst) - sum(lst[K - 1:L])
+count = N - (L - K + 1)
+average = total_sum / count
+print(f"Среднее арифметическое: {average}")
+# №4
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+print("Четные числа:")
+for i in range(N):
+    if lst[i] % 2 == 0:
+        print(lst[i], end=" ")
+
+print("\nНечетные числа (в обратном порядке):")
+for i in range(N - 1, -1, -1):
+    if lst[i] % 2 != 0:
+        print(lst[i], end=" ")
+# №5
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+print("Элементы с четными номерами:")
+for i in range(1, N, 2):
+    print(lst[i], end=" ")
+
+print("\nЭлементы с нечетными номерами:")
+for i in range(0, N, 2):
+    print(lst[i], end=" ")
+# №6
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+max_index = lst.index(max(lst))
+product = 1
+for i in range(max_index + 1, N):
+    product *= lst[i]
+
+print(f"Произведение элементов справа от максимального: {product}")
+# №7
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+min_index = lst.index(min(lst))
+max_index = lst.index(max(lst))
+
+start = min(min_index, max_index)
+end = max(min_index, max_index)
+
+sum_between = sum(lst[start:end + 1])
+print(f"Сумма между минимальным и максимальным: {sum_between}")
+# №8
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+min_index = lst.index(min(lst))
+max_index = lst.index(max(lst))
+
+start = min(min_index, max_index) + 1
+end = max(min_index, max_index)
+
+for i in range(start, end):
+    lst[i] = 0
+
+print("Обновленный список:", lst)
+# №9
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+add_value = int(input("Введите число для увеличения четных: "))
+
+has_even = False
+for i in range(N):
+    if lst[i] % 2 == 0:
+        lst[i] += add_value
+        has_even = True
+
+if has_even:
+    print("Обновленный список:", lst)
+else:
+    print("Четных чисел нет, список без изменений:", lst)
+# №10
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+has_odd = False
+for i in range(N):
+    if lst[i] % 2 != 0:
+        lst[i] = 0
+        has_odd = True
+
+if has_odd:
+    print("Обновленный список:", lst)
+else:
+    print("Нечетных чисел нет, список без изменений:", lst)
+# №11
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+min_even = float('inf')
+for i in range(1, N, 2):
+    if lst[i] < min_even:
+        min_even = lst[i]
+
+print(f"Минимальный элемент с четными номерами: {min_even}")
+# №12
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+count = 0
+print("Номера элементов, больших правого соседа:")
+for i in range(N - 1):
+    if lst[i] > lst[i + 1]:
+        print(i + 1, end=" ")
+        count += 1
+
+print(f"\nКоличество таких элементов: {count}")
+# №13
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+max_sum = float('-inf')
+pair = (0, 0)
+
+for i in range(N - 1):
+    current_sum = lst[i] + lst[i + 1]
+    if current_sum > max_sum:
+        max_sum = current_sum
+        pair = (lst[i], lst[i + 1])
+
+print(f"Два соседних элемента с максимальной суммой: {pair[0]} и {pair[1]}")
+# №14
+N = int(input("Введите количество элементов N: "))
+lst = []
+for i in range(N):
+    lst.append(int(input(f"Введите элемент {i + 1}: ")))
+
+min_index = lst.index(min(lst))
+max_index = lst.index(max(lst))
+
+lst[min_index], lst[max_index] = lst[max_index], lst[min_index]
+print("Список после замены:", lst)
+# №15
+N = int(input("Введите N (>2): "))
+A = int(input("Введите A: "))
+B = int(input("Введите B: "))
+
+lst = [A, B]
+for i in range(2, N):
+    lst.append(sum(lst[:i]))
+
+print("Полученный список:", lst)
