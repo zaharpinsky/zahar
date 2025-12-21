@@ -1,0 +1,97 @@
+# №1
+s = input("Введите строку: ")
+words = s.split()
+print("Количество слов:", len(words))
+# №2
+s = input("Введите строку (слова заглавными буквами): ")
+words = s.split()
+count = 0
+for word in words:
+    if word and word[0] == word[-1]:
+        count += 1
+print("Количество слов, начинающихся и заканчивающихся одной буквой:", count)
+# №3
+s = input("Введите строку (слова заглавными буквами): ")
+words = s.split()
+count = 0
+for word in words:
+    if 'А' in word:
+        count += 1
+print("Количество слов, содержащих букву 'А':", count)
+# №4
+s = input("Введите строку: ")
+words = s.split()
+min_length = float('inf')
+for word in words:
+    if len(word) < min_length:
+        min_length = len(word)
+print("Длина самого короткого слова:", min_length)
+# №5
+s = input("Введите строку: ")
+words = s.split()
+reversed_words = words[::-1]
+result = ' '.join(reversed_words)
+print("Строка в обратном порядке:", result)
+# №6
+s = input("Введите строку (слова заглавными буквами): ")
+words = s.split()
+words.sort()
+result = ' '.join(words)
+print("Слова в алфавитном порядке:", result)
+# №7
+C = input("Введите символ C: ")
+S = input("Введите строку S: ")
+S0 = input("Введите строку S0: ")
+result = S.replace(C, S0 + C)
+print("Результат:", result)
+# №8
+s = input("Введите строку с избыточными пробелами: ")
+words = s.split()
+result = ' '.join(words)
+print("Строка с одним пробелом между слов:", result)
+# №9
+s = input("Введите строку: ")
+count = 0
+for char in s:
+    if char.isalpha() and char.islower():
+        count += 1
+print("Количество строчных букв:", count)
+# №10
+s = input("Введите строку: ")
+words = s.split()
+max_length = 0
+for word in words:
+    if len(word) > max_length:
+        max_length = len(word)
+print("Длина самого длинного слова:", max_length)
+# №11
+s = input("Введите строку: ")
+even_chars = s[1::2]
+odd_chars = s[0::2][::-1]
+result = even_chars + odd_chars
+print("Зашифрованная строка:", result)
+# №12
+S = input("Введите строку S: ")
+N = int(input("Введите число N: "))
+result = ('*' * N).join(S)
+print("Результат:", result)
+# №13
+s = input("Введите строку: ")
+words = s.split()
+result = '.'.join(words)
+print("Результат:", result)
+# №14
+file_path = input("Введите полный путь к файлу: ")
+file_name_with_ext = file_path.split('\\')[-1]
+file_name = file_name_with_ext.split('.')[0]
+print("Имя файла без расширения:", file_name)
+# №15
+s = input("Введите строку: ")
+words = s.split()
+longest_word = ""
+max_length = 0
+for word in words:
+    if len(word) >= max_length:
+        max_length = len(word)
+        longest_word = word
+print("Самое длинное слово:", longest_word)
