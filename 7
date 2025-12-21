@@ -1,0 +1,108 @@
+# №1
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+odd_numbers = [x for x in numbers if x % 2 != 0]
+odd_numbers.sort(reverse=True)
+
+print("Нечетные числа по убыванию:", odd_numbers)
+# №2
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+positive_numbers = [x for x in numbers if x > 0]
+positive_numbers.sort()
+
+print("Положительные числа по возрастанию:", positive_numbers)
+# №3
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+positive_numbers = [x for x in numbers if x > 0]
+positive_numbers.sort(reverse=True)
+
+print("Положительные числа по убыванию:", positive_numbers)
+# №4
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+even_numbers = [x for x in numbers if x % 2 == 0]
+even_numbers.sort()
+
+print("Четные числа по возрастанию:", even_numbers)
+# №5
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+k = int(input("Введите число k: "))
+
+filtered_numbers = [x for x in numbers if x > k]
+filtered_numbers.sort(reverse=True)
+
+print(f"Числа больше {k} по убыванию:", filtered_numbers)
+# №6
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+filtered_numbers = [x for x in numbers if x > 10]
+filtered_numbers.sort()
+
+print("Числа больше 10 по возрастанию:", filtered_numbers)
+# №7
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+filtered_numbers = [x for x in numbers if x % 5 == 0]
+filtered_numbers.sort(reverse=True)
+
+print("Числа кратные 5 по убыванию:", filtered_numbers)
+# №8
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+k = int(input("Введите число k: "))
+
+filtered_numbers = [x for x in numbers if x < k]
+filtered_numbers.sort()
+
+print(f"Числа меньше {k} по возрастанию:", filtered_numbers)
+# №9
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+filtered_numbers = [x for x in numbers if x < 15]
+filtered_numbers.sort(reverse=True)
+
+print("Числа меньше 15 по убыванию:", filtered_numbers)
+# №10
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+filtered_numbers = [x for x in numbers if x % 3 == 0]
+filtered_numbers.sort()
+
+print("Числа кратные 3 по возрастанию:", filtered_numbers)
+# №11
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+k = int(input("Введите число k: "))
+
+filtered_numbers = [x for x in numbers if x % k == 0]
+filtered_numbers.sort(reverse=True)
+
+print(f"Числа кратные {k} по убыванию:", filtered_numbers)
+# №12
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+negative_numbers = [x for x in numbers if x < 0]
+negative_numbers.sort()
+
+print("Отрицательные числа по возрастанию:", negative_numbers)
+# №13
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+odd_positions = [numbers[i] for i in range(len(numbers)) if i % 2 != 0]
+odd_positions.sort(reverse=True)
+
+print("Числа на нечетных позициях по убыванию:", odd_positions)
+# №14
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+two_digit_numbers = [x for x in numbers if 10 <= abs(x) <= 99]
+two_digit_numbers.sort()
+
+print("Двузначные числа по возрастанию:", two_digit_numbers)
+# №15
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+even_positions = [numbers[i] for i in range(len(numbers)) if i % 2 == 0]
+even_positions.sort()
+
+print("Числа на четных позициях по возрастанию:", even_positions)
