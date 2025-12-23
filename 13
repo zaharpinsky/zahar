@@ -1,0 +1,138 @@
+#1
+#(a)
+def parts_from_sequence(s):
+    
+    digits = set(ch for ch in s if ch.isdigit())  
+    znaks = set(ch for ch in s if ch in '+-*/')     
+    letters_AF = set(ch for ch in s if ch.upper() in set('ABCDEF') )
+    letters_XZ = set(ch for ch in s if ch.upper() in set('XYZ') )
+    
+    return digits, znaks, letters_AF, letters_XZ
+# (b)
+def missing_products(given_codes, all_codes=None):
+    
+    if all_codes is None:
+        all_codes = set(range(1, 21))
+    else:
+        all_codes = set(all_codes)
+        
+    present = set(given_codes)
+    missing = all_codes - present
+    return missing
+#2
+s = input()
+digits = {c for c in s if c.isdigit()}
+ops = {c for c in s if c in '+-*'}
+print(len(digits), len(ops))
+A = set(map(int,input().split()))
+B = set(map(int,input().split()))
+print(sorted(A & B))
+#3
+import string
+s = input()
+letters = {c for c in s if c in string.ascii_lowercase}
+punct = sum(1 for c in s if c in '.,!?;:-')
+print(letters); print(punct)
+A = set(input().split())
+B = set(input().split())
+print(A.issubset(B))
+#4
+s1 = set(input().lower())
+s2 = set(input().lower())
+s3 = set(input().lower())
+print(sorted(s1 & s2 & s3))
+u1 = set(input().split())
+u2 = set(input().split())
+print(sorted(u1 ^ u2))
+#5
+nums = [input().strip() for _ in range(3)]
+digits = {int(c) for n in nums for c in n if c.isdigit()}
+print(max(digits) if digits else None)
+A = set(input().split())
+B = set(input().split())
+print(sorted(A ^ B))
+#6
+s = input()
+digits = sorted({c for c in s if c.isdigit()})
+print(digits, len(digits))
+s1 = set(input())
+s2 = set(input())
+s3 = set(input())
+print(sorted(s1 ^ s2 ^ s3))
+#7
+s1 = set(input())
+s2 = set(input())
+s3 = set(input())
+print(sorted(s1 ^ s2 ^ s3))
+A = set(input().split())
+B = set(input().split())
+print(A.isdisjoint(B))
+#8
+a = set(input())
+b = set(input())
+c = set(input())
+print(c.issubset(a | b))
+from collections import Counter
+n = int(input())
+emps = [set(input().split()) for _ in range(n)]
+cnt = Counter(skill for e in emps for skill in e)
+print(sorted([s for s,v in cnt.items() if v==1]))
+#9
+text = input().lower()
+vowels = set('аеёиоуыэюя')
+res = sorted({c for c in text if c in vowels})
+print(res)
+from collections import Counter
+m = int(input())
+prods = [set(input().split()) for _ in range(m)]
+cnt = Counter(cat for p in prods for cat in p)
+print(sorted([c for c,v in cnt.items() if v==1]))
+#10
+n = input().strip()
+print(sorted({int(c) for c in n if c.isdigit()}))
+A = set(input().split())
+B = set(input().split())
+print(A < B)  # строгое подмножество
+#11
+text = input().lower()
+vowels = set('аеёиоуыэюя')
+letters = [c for c in text if c.isalpha()]
+v = sum(1 for c in letters if c in vowels)
+c = len(letters) - v
+print('vowels' if v>c else 'consonants' if c>v else 'equal')
+n = int(input())
+days = [set(input().split()) for _ in range(n)]
+d = int(input())-1
+others = set().union(*(days[:d]+days[d+1:])) if n>1 else set()
+print(sorted(days[d] - others))
+#12
+n = input().strip()
+all_d = set('0123456789')
+print(sorted(all_d - set(n)))
+A = set(input().split())
+B = set(input().split())
+print(A.issuperset(B))
+#13
+A = set(input().split())
+B = set(input().split())
+A -= (A & B)
+print(sorted(A))
+k = int(input())
+all_p = set().union(*(set(input().split()) for _ in range(k)))
+print(sorted(all_p))
+#14
+text = set(input().lower())
+vowels = set('аеёиоуыэюя')
+alphabet = set('абвгдеёжзийклмнопрстуфхцчшщьыъэюя')
+consonants = alphabet - vowels
+print(sorted(consonants - text))
+A = set(input().split())
+B = set(input().split())
+print(A == B)
+#15
+A = set(input().split())
+B = set(input().split())
+print(not A.isdisjoint(B))
+u1 = set(input().split())
+u2 = set(input().split())
+print(sorted(u1 & u2))
