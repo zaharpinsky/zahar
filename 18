@@ -1,0 +1,310 @@
+# 1
+# import math
+# def mid_point(x1, y1, x2, y2):
+#     return (x1 + x2) / 2, (y1 + y2) / 2
+# def can_form_triangle(a, b, c):
+#     return a + b > c and a + c > b and b + c > a
+# def triangle_area(a, b, c):
+#     if not can_form_triangle(a, b, c):
+#         return None
+#     p = (a + b + c) / 2
+#     return math.sqrt(p * (p - a) * (p - b) * (p - c))
+# import geometry1
+# print(geometry1.mid_point(0, 0, 4, 4))
+# print(geometry1.can_form_triangle(3, 4, 5))
+# print(geometry1.triangle_area(3, 4, 5))
+#
+#
+# 2
+# import math
+# def distance(x1, y1, x2, y2):
+#     return math.sqrt((x2 - x1)**2 + (y2 - y1)**2)
+# def triangle_perimeter(x1, y1, x2, y2, x3, y3):
+#     a = distance(x1, y1, x2, y2)
+#     b = distance(x2, y2, x3, y3)
+#     c = distance(x1, y1, x3, y3)
+#     if a + b > c and a + c > b and b + c > a:
+#         return a + b + c
+#     return None
+# def triangle_area_points(x1, y1, x2, y2, x3, y3):
+#     return abs((x1*(y2-y3) + x2*(y3-y1) + x3*(y1-y2)) / 2)
+# import geometry2
+# print(geometry2.distance(0, 0, 3, 4))
+# print(geometry2.triangle_perimeter(0, 0, 3, 0, 0, 4))
+# print(geometry2.triangle_area_points(0, 0, 3, 0, 0, 4))
+#
+#
+# 3
+# import math
+# def gcd(a, b):
+#     while b:
+#         a, b = b, a % b
+#     return abs(a)
+# def simplify_fraction(p, q):
+#     d = gcd(p, q)
+#     return p // d, q // d
+# def fraction_to_decimal(p, q):
+#     return p / q
+# import fractions_ops
+# print(fractions_ops.gcd(12, 18))
+# print(fractions_ops.simplify_fraction(4, 8))
+# print(fractions_ops.fraction_to_decimal(1, 4))
+#
+#
+# 4
+# def line_equation(x1, y1, x2, y2):
+#     if x1 == x2:
+#         return None, x1
+#     a = (y2 - y1) / (x2 - x1)
+#     b = y1 - a * x1
+#     return a, b
+# def are_parallel(a1, b1, a2, b2):
+#     if a1 is None and a2 is None:
+#         return True
+#     if a1 is None or a2 is None:
+#         return False
+#     return abs(a1 - a2) < 1e-10
+# def point_on_line(x, y, a, b, vertical_x=None):
+#     if vertical_x is not None:
+#         return abs(x - vertical_x) < 1e-10
+#     return abs(y - (a * x + b)) < 1e-10
+# import lines
+# print(lines.line_equation(0, 0, 2, 2))
+# print(lines.are_parallel(1, 0, 1, 5))
+# print(lines.point_on_line(1, 1, 1, 0, None))
+#
+#
+# 5
+# import math
+# def circle_area(r):
+#     return math.pi * r**2
+# def circle_length(r):
+#     return 2 * math.pi * r
+# def sector_area(r, angle):
+#     return math.pi * r**2 * angle / 360
+# def inscribed_square_perimeter(r):
+#     side = r * math.sqrt(2)
+#     return 4 * side
+# import circle_ops
+# print(circle_ops.circle_area(5))
+# print(circle_ops.circle_length(5))
+# print(circle_ops.sector_area(5, 90))
+# print(circle_ops.inscribed_square_perimeter(5))
+#
+#
+# 6
+# def remove_char(s, char):
+#     return s.replace(char, '')
+# def replace_char(s, old, new):
+#     return s.replace(old, new)
+# def count_char(s, char):
+#     return s.count(char)
+# import string_ops
+# print(string_ops.remove_char("hello", 'l'))
+# print(string_ops.replace_char("hello", 'l', 'w'))
+# print(string_ops.count_char("hello", 'l'))
+#
+# 7
+# def print_matrix(matrix):
+#     for row in matrix:
+#         print(' '.join(map(str, row)))
+# def add_matrices(A, B):
+#     if len(A) != len(B) or len(A[0]) != len(B[0]):
+#         return None
+#     result = []
+#     for i in range(len(A)):
+#         row = []
+#         for j in range(len(A[0])):
+#             row.append(A[i][j] + B[i][j])
+#         result.append(row)
+#     return result
+# def multiply_matrices(A, B):
+#     if len(A[0]) != len(B):
+#         return None
+#     result = []
+#     for i in range(len(A)):
+#         row = []
+#         for j in range(len(B[0])):
+#             total = 0
+#             for k in range(len(B)):
+#                 total += A[i][k] * B[k][j]
+#             row.append(total)
+#         result.append(row)
+#     return result
+# def transpose(matrix):
+#     return [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]
+# import matrix_ops
+# A = [[1, 2], [3, 4]]
+# B = [[5, 6], [7, 8]]
+# matrix_ops.print_matrix(A)
+# print(matrix_ops.add_matrices(A, B))
+# print(matrix_ops.multiply_matrices(A, B))
+# print(matrix_ops.transpose(A))
+#
+# 8
+# def add_vectors(v1, v2):
+#     if len(v1) != len(v2):
+#         return None
+#     return [v1[i] + v2[i] for i in range(len(v1))]
+# def multiply_vector(v, scalar):
+#     return [x * scalar for x in v]
+# def min_max_vector(v):
+#     return min(v), max(v)
+# import vector_ops
+# v1 = [1, 2, 3]
+# v2 = [4, 5, 6]
+# print(vector_ops.add_vectors(v1, v2))
+# print(vector_ops.multiply_vector(v1, 2))
+# print(vector_ops.min_max_vector(v1))
+#
+# 9
+# def remove_digits(filename, output_filename):
+#     with open(filename, 'r', encoding='utf-8') as f:
+#         content = f.read()
+#     result = ''.join(c for c in content if not c.isdigit())
+#     with open(output_filename, 'w', encoding='utf-8') as f:
+#         f.write(result)
+#     return result
+# def count_chars(filename):
+#     with open(filename, 'r', encoding='utf-8') as f:
+#         content = f.read()
+#     return len(content)
+# def count_lines(filename):
+#     with open(filename, 'r', encoding='utf-8') as f:
+#         lines = f.readlines()
+#     return len(lines)
+# import file_ops
+#
+# print(file_ops.count_chars('test.txt'))
+# print(file_ops.count_lines('test.txt'))
+#
+#
+# 10
+# def complex_modulus(z):
+#     real, imag = z
+#     return (real**2 + imag**2)**0.5
+# def multiply_complex(z1, z2):
+#     a, b = z1
+#     c, d = z2
+#     return (a*c - b*d, a*d + b*c)
+# def divide_complex(z1, z2):
+#     a, b = z1
+#     c, d = z2
+#     denominator = c**2 + d**2
+#     return ((a*c + b*d)/denominator, (b*c - a*d)/denominator)
+# import complex_ops
+# z1 = (3, 4)  # 3 + 4i
+# z2 = (1, 2)  # 1 + 2i
+# print(complex_ops.complex_modulus(z1))
+# print(complex_ops.multiply_complex(z1, z2))
+# print(complex_ops.divide_complex(z1, z2))
+#
+# 11
+# def fraction_power(p, q, n):
+#     return p**n, q**n
+# def fractions_equal(p1, q1, p2, q2):
+#     return p1*q2 == p2*q1
+# def fraction_greater(p1, q1, p2, q2):
+#     return p1*q2 > p2*q1
+# def fraction_less(p1, q1, p2, q2):
+#     return p1*q2 < p2*q1
+# import fraction_power
+# print(fraction_power.fraction_power(1, 2, 3))
+# print(fraction_power.fractions_equal(1, 2, 2, 4))
+# print(fraction_power.fraction_greater(3, 4, 1, 2))
+#
+# 12
+# import math
+# def vector_subtract(v1, v2):
+#     return (v1[0] - v2[0], v1[1] - v2[1])
+# def dot_product(v1, v2):
+#     return v1[0]*v2[0] + v1[1]*v2[1]
+# def vector_length(v):
+#     return math.sqrt(v[0]**2 + v[1]**2)
+# import plane_vectors
+# v1 = (3, 4)
+# v2 = (1, 2)
+# print(plane_vectors.vector_subtract(v1, v2))
+# print(plane_vectors.dot_product(v1, v2))
+# print(plane_vectors.vector_length(v1))
+#
+# 13
+# def insertion_sort(arr):
+#     for i in range(1, len(arr)):
+#         key = arr[i]
+#         j = i - 1
+#         while j >= 0 and key < arr[j]:
+#             arr[j + 1] = arr[j]
+#             j -= 1
+#         arr[j + 1] = key
+#     return arr
+# def bubble_sort(arr):
+#     n = len(arr)
+#     for i in range(n):
+#         for j in range(0, n - i - 1):
+#             if arr[j] > arr[j + 1]:
+#                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
+#     return arr
+# def selection_sort(arr):
+#     for i in range(len(arr)):
+#         min_idx = i
+#         for j in range(i + 1, len(arr)):
+#             if arr[j] < arr[min_idx]:
+#                 min_idx = j
+#         arr[i], arr[min_idx] = arr[min_idx], arr[i]
+#     return arr
+# import sorting
+# arr = [5, 2, 8, 1, 9]
+# print(sorting.insertion_sort(arr.copy()))
+# print(sorting.bubble_sort(arr.copy()))
+# print(sorting.selection_sort(arr.copy()))
+#
+# 14
+# def min_matrix(matrix):
+#     min_val = matrix[0][0]
+#     for row in matrix:
+#         for val in row:
+#             if val < min_val:
+#                 min_val = val
+#     return min_val
+# def max_matrix(matrix):
+#     max_val = matrix[0][0]
+#     for row in matrix:
+#         for val in row:
+#             if val > max_val:
+#                 max_val = val
+#     return max_val
+# def sum_matrix(matrix):
+#     total = 0
+#     for row in matrix:
+#         for val in row:
+#             total += val
+#     return total
+# def sum_row(matrix, row_index):
+#     if 0 <= row_index < len(matrix):
+#         return sum(matrix[row_index])
+#     return None
+# import matrix_functions
+# matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+# print(matrix_functions.min_matrix(matrix))
+# print(matrix_functions.max_matrix(matrix))
+# print(matrix_functions.sum_matrix(matrix))
+# print(matrix_functions.sum_row(matrix, 1))
+#
+# 15
+# def add_fractions(p1, q1, p2, q2):
+#     numerator = p1*q2 + p2*q1
+#     denominator = q1*q2
+#     return numerator, denominator
+# def subtract_fractions(p1, q1, p2, q2):
+#     numerator = p1*q2 - p2*q1
+#     denominator = q1*q2
+#     return numerator, denominator
+# def multiply_fractions(p1, q1, p2, q2):
+#     numerator = p1*p2
+#     denominator = q1*q2
+#     return numerator, denominator
+# import fraction_arithmetic
+# print(fraction_arithmetic.add_fractions(1, 2, 1, 3))
+# print(fraction_arithmetic.subtract_fractions(1, 2, 1, 3))
+# print(fraction_arithmetic.multiply_fractions(1, 2, 2, 3))
