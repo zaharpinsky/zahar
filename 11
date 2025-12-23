@@ -1,0 +1,305 @@
+# 1а) Сортировка словаря по значениям
+def sort_dict_by_values(d, reverse=False):
+    return dict(sorted(d.items(), key=lambda x: x[1], reverse=reverse))
+
+# 1б) Объединение словарей с суммированием значений
+def merge_dicts_sum(d1, d2):
+    result = d1.copy()
+    for key, value in d2.items():
+        result[key] = result.get(key, 0) + value
+    return result
+
+# 1в) Проверка наличия ключей в словаре
+def check_keys(d, keys):
+    return all(key in d for key in keys)
+
+# Примеры использования:
+print("1а) Сортировка по возрастанию:", sort_dict_by_values({1:2, 3:4, 4:3, 2:1, 0:0}))
+print("1а) Сортировка по убыванию:", sort_dict_by_values({1:2, 3:4, 4:3, 2:1, 0:0}, True))
+print("1б) Объединение:", merge_dicts_sum({1:2, 3:4}, {3:5, 6:7}))
+print("1в) Проверка ключей:", check_keys({1:2, 3:4}, [1, 3]))
+# 2а) Добавление нового ключа
+def add_key(d, key, value):
+    d[key] = value
+    return d
+
+# 2б) Уникальные значения
+def unique_values(d):
+    return set(d.values())
+
+# 2в) Подсчет элементов в списках-значениях
+def count_elements_in_lists(d):
+    return sum(len(value) for value in d.values() if isinstance(value, list))
+
+# Примеры использования:
+print("\n2а) Добавление ключа:", add_key({1:2, 3:4}, 5, 6))
+print("2б) Уникальные значения:", unique_values({1:2, 3:4, 5:2}))
+print("2в) Подсчет элементов:", count_elements_in_lists({1:[2,3,4], 3:[5,6,7], 5:[8,9,0]}))
+# 3а) Объединение нескольких словарей
+def merge_multiple_dicts(*dicts):
+    result = {}
+    for d in dicts:
+        result.update(d)
+    return result
+
+# 3б) Сортировка по значениям (аналогично 1а)
+def sort_dict_by_values_simple(d):
+    return dict(sorted(d.items(), key=lambda x: x[1]))
+
+# 3в) Очистка списков в значениях
+def clear_lists_in_dict(d):
+    return {key: [] if isinstance(value, list) else value for key, value in d.items()}
+
+# Примеры использования:
+print("\n3а) Объединение словарей:", merge_multiple_dicts({1:2}, {3:4}, {5:6}))
+print("3б) Сортировка по значениям:", sort_dict_by_values_simple({1:2, 3:4, 4:3, 2:1, 0:0}))
+print("3в) Очистка списков:", clear_lists_in_dict({1:[2,3,4], 3:[5,6,7], 5:[8,9,0]}))
+from itertools import permutations
+
+# 4а) Проверка наличия ключей (аналогично 1в)
+def check_keys_exists(d, keys):
+    return all(key in d for key in keys)
+
+# 4б) Генерация комбинаций букв
+def generate_combinations(d, key):
+    if key in d and isinstance(d[key], str):
+        return [''.join(p) for p in permutations(d[key])]
+    return []
+
+# 4в) Замена значений на среднее
+def replace_with_average(d):
+    result = {}
+    for key, value in d.items():
+        if isinstance(value, list) and value:
+            result[key] = sum(value) / len(value)
+        else:
+            result[key] = value
+    return result
+
+# Примеры использования:
+print("\n4а) Проверка ключей:", check_keys_exists({1:2, 3:4}, [1, 3]))
+print("4б) Комбинации:", generate_combinations({1: 'abc', 2: 'def'}, 1)[:6])  # первые 6
+print("4в) Средние значения:", replace_with_average({1:[2,3,4], 3:[5,6,7], 5:[8,9,0]}))
+# 5а) Обход элементов словаря
+def iterate_dict(d):
+    for key, value in d.items():
+        print(f"{key}: {value}")
+
+# 5б) Три наибольших значения
+def top_three_values(d):
+    return sorted(d.values(), reverse=True)[:3]
+
+# 5в) Сравнение значений одинаковых ключей
+def compare_dict_values(d1, d2):
+    result = {}
+    common_keys = set(d1.keys()) & set(d2.keys())
+    for key in common_keys:
+        result[key] = (d1[key], d2[key])
+    return result
+
+# Примеры использования:
+print("\n5а) Обход словаря:")
+iterate_dict({1:2, 3:4, 5:6})
+print("5б) Три наибольших значения:", top_three_values({1:2, 3:4, 5:6}))
+print("5в) Сравнение значений:", compare_dict_values({1:2, 3:4}, {1:3, 3:4}))
+# 6а) Словарь квадратов чисел
+def squares_dict(n):
+    return {i: i*i for i in range(1, n+1)}
+
+# 6б) Объединение значений из списка словарей
+def extract_values(dict_list):
+    return [list(d.values())[0] for d in dict_list]
+
+# 6в) Удаление пустых элементов
+def remove_empty_elements(d):
+    return {k: v for k, v in d.items() if v not in [None, '']}
+
+# Примеры использования:
+print("\n6а) Словарь квадратов:", squares_dict(5))
+print("6б) Извлечение значений:", extract_values([{1:2}, {3:4}, {5:6}]))
+print("6в) Удаление пустых:", remove_empty_elements({1:'', 2:'abc', 3:None}))
+# 7а) Словарь квадратов от 1 до 15
+def squares_1_to_15():
+    return {i: i*i for i in range(1, 16)}
+
+# 7б) Частотный словарь символов
+def char_frequency_dict(s):
+    return {char: s.count(char) for char in set(s)}
+
+# 7в) Фильтрация словаря по значениям
+def filter_dict_by_values(d, min_value=3):
+    return {k: v for k, v in d.items() if v >= min_value}
+
+# Примеры использования:
+print("\n7а) Квадраты 1-15:", squares_1_to_15())
+print("7б) Частотный словарь:", char_frequency_dict("hello world"))
+print("7в) Фильтрация:", filter_dict_by_values({'a':1, 'b':2, 'c':3, 'd':4}))
+# 8а) Объединение словарей
+def combine_dicts(d1, d2):
+    return {**d1, **d2}
+
+# 8б) Вывод в виде таблицы
+def print_dict_table(d):
+    for key, value in d.items():
+        print(f"{key} {value}")
+
+# 8в) Преобразование списков в словарь
+def lists_to_dict(*lists):
+    return {f'key{i+1}': lst for i, lst in enumerate(lists)}
+
+# Примеры использования:
+print("\n8а) Объединение:", combine_dicts({'a':1, 'b':2}, {'c':3, 'd':4}))
+print("8б) Таблица:")
+print_dict_table({'a':1, 'b':2, 'c':3, 'd':4})
+print("8в) Списки в словарь:", lists_to_dict([1, 2, 3], [4, 5, 6]))
+# 9а) Обход словаря с выводом
+def iterate_dict_detailed(d):
+    for key, value in d.items():
+        print(f"key: {key}, value: {value}")
+
+# 9б) Сумма значений по ключу
+def sum_values_by_key(dict_list, target_key):
+    return sum(d.get(target_key, 0) for d in dict_list)
+
+# 9в) Фильтрация данных учащихся
+def filter_student_data(students):
+    return {name: {'рост': data['рост']} for name, data in students.items()}
+
+# Примеры использования:
+print("\n9а) Детальный обход:")
+iterate_dict_detailed({'a':1, 'b':2, 'c':3, 'd':4})
+print("9б) Сумма значений:", sum_values_by_key([{'a': 1}, {'a': 2}, {'a': 3}, {'b': 1}], 'a'))
+print("9в) Фильтрация учащихся:", filter_student_data({'Иван': {'рост':170, 'вес':70}, 'Михаил': {'рост':180, 'вес':75}}))
+# 10а) Сумма всех значений
+def sum_dict_values(d):
+    return sum(d.values())
+
+# 10б) Преобразование списка в словарь с пустыми значениями
+def list_to_nested_dict(lst):
+    return {item: {} for item in lst}
+
+# 10в) Проверка одинаковых значений
+def all_values_equal(d):
+    return len(set(d.values())) == 1
+
+# Примеры использования:
+print("\n10а) Сумма значений:", sum_dict_values({'a':1, 'b':2, 'c':3, 'd':4}))
+print("10б) Список в словарь:", list_to_nested_dict(['a', 'b', 'c']))
+print("10в) Все значения одинаковы:", all_values_equal({'a':1, 'b':1, 'c':1}))
+# 11а) Произведение всех значений
+def multiply_dict_values(d):
+    result = 1
+    for value in d.values():
+        result *= value
+    return result
+
+# 11б) Сортировка списков в словаре
+def sort_lists_in_dict(d):
+    return {key: sorted(value) for key, value in d.items()}
+
+# 11в) Группировка по ключам
+def group_by_key(pairs):
+    result = {}
+    for key, value in pairs:
+        if key not in result:
+            result[key] = []
+        result[key].append(value)
+    return result
+
+# Примеры использования:
+print("\n11а) Произведение значений:", multiply_dict_values({'a':1, 'b':2, 'c':3, 'd':4}))
+print("11б) Сортировка списков:", sort_lists_in_dict({'a':['c', 'b', 'a'], 'b':['c', 'b', 'a']}))
+print("11в) Группировка:", group_by_key([('a', 1), ('b', 2), ('a', 3), ('b', 4)]))
+# 12а) Удаление ключа
+def remove_key(d, key_to_remove):
+    return {k: v for k, v in d.items() if k != key_to_remove}
+
+# 12б) Удаление пробелов из ключей
+def strip_keys(d):
+    return {k.strip(): v for k, v in d.items()}
+
+# 12в) Преобразование словаря списков в список словарей
+def dict_of_lists_to_list_of_dicts(d):
+    result = []
+    for key, values in d.items():
+        for value in values:
+            result.append({key: value})
+    return result
+
+# Примеры использования:
+print("\n12а) Удаление ключа:", remove_key({'a':1, 'b':2, 'c':3}, 'b'))
+print("12б) Удаление пробелов:", strip_keys({' a ':1, ' b ':2, ' c ':3}))
+print("12в) Преобразование:", dict_of_lists_to_list_of_dicts({'a': [1, 2], 'b': [3, 4]}))
+# 13а) Преобразование списков в словарь
+def lists_to_dict_simple(keys, values):
+    return dict(zip(keys, values))
+
+# 13б) Три самых дорогих товара
+def top_three_expensive(items):
+    return sorted(items, key=lambda x: x['price'], reverse=True)[:3]
+
+# 13в) Удаление словаря из списка
+def remove_dict_from_list(dict_list, dict_to_remove):
+    return [d for d in dict_list if d != dict_to_remove]
+
+# Примеры использования:
+print("\n13а) Списки в словарь:", lists_to_dict_simple(['a', 'b', 'c'], [1, 2, 3]))
+items = [{'name': 'item1', 'price': 10}, {'name': 'item2', 'price': 50}, 
+         {'name': 'item3', 'price': 30}, {'name': 'item4', 'price': 40}]
+print("13б) Три самых дорогих:", top_three_expensive(items))
+print("13в) Удаление словаря:", remove_dict_from_list([{'a': 1}, {'b': 2}, {'c': 3}], {'b': 2}))
+# 14а) Сортировка по ключам
+def sort_dict_by_keys(d):
+    return dict(sorted(d.items()))
+
+# 14б) Отображение элементов словаря
+def display_dict_elements(d):
+    for key, value in d.items():
+        print(f"key: {key}, value: {value}, item: ({key}, {value})")
+
+# 14в) Преобразование строковых значений в числа
+def convert_string_values(d):
+    result = {}
+    for key, value in d.items():
+        try:
+            if '.' in str(value):
+                result[key] = float(value)
+            else:
+                result[key] = int(value)
+        except ValueError:
+            result[key] = value
+    return result
+
+# Примеры использования:
+print("\n14а) Сортировка по ключам:", sort_dict_by_keys({'b': 1, 'a': 2, 'c': 3}))
+print("14б) Отображение элементов:")
+display_dict_elements({'a': 1, 'b': 2, 'c': 3})
+print("14в) Преобразование значений:", convert_string_values({'a': '1', 'b': '2', 'c': '3.0'}))
+# 15а) Максимальное и минимальное значение
+def find_min_max(d):
+    values = list(d.values())
+    return f"max: {max(values)}, min: {min(values)}"
+
+# 15б) Вывод ключей и значений
+def print_keys_values(d):
+    for key, value in d.items():
+        print(f"key: {key}, value: {value}")
+
+# 15в) Создание словаря с диапазонами и доступ к элементам
+def create_range_dict():
+    d = {
+        'x': list(range(11, 21)),
+        'y': list(range(21, 31)),
+        'z': list(range(31, 41))
+    }
+    print(f"пятый элемент из x: {d['x'][4]}")
+    print(f"пятый элемент из y: {d['y'][4]}")
+    print(f"пятый элемент из z: {d['z'][4]}")
+    return d
+
+# Примеры использования:
+print("\n15а) Макс и мин:", find_min_max({'a': 1, 'b': 2, 'c': 3}))
+print("15б) Вывод ключей и значений:")
+print_keys_values({'a': 1, 'b': 2, 'c': 3})
+print("15в) Словарь с диапазонами:")
+create_range_dict()
