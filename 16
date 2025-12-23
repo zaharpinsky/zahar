@@ -1,0 +1,707 @@
+# 1а
+# def full_name(first_name, last_name, middle_name=None):
+#     if middle_name:
+#         return f"{last_name} {first_name} {middle_name}"
+#     else:
+#         return f"{last_name} {first_name}"
+# result1 = full_name('Иван', 'Петров')
+# print(result1)
+# result2 = full_name('Мария', 'Сидорова', middle_name='Алексеевна')
+# print(result2)
+#
+# 1б
+# def transform_list(numbers, transform_function=None):
+#     if transform_function:
+#         return [transform_function(x) for x in numbers]
+#     else:
+#         return numbers.copy()
+# result1 = transform_list([1, 2, 3])
+# print(result1)
+# result2 = transform_list([1, 2, 3], transform_function=lambda x: x * 2)
+# print(result2)
+#
+# 1в
+# def sum_positive_numbers(*args):
+#     total = 0
+#     for num in args:
+#         if num > 0:
+#             total += num
+#     return total
+# result1 = sum_positive_numbers(1, -2, 3, -4, 5)
+# print(result1)
+# result2 = sum_positive_numbers(-1, -2, -3)
+# print(result2)
+#
+# 1г
+# def common_keys(**dicts):
+#     if not dicts:
+#         return {}
+#     dictionaries = list(dicts.values())
+#     common_keys_set = set(dictionaries[0].keys())
+#     for d in dictionaries[1:]:
+#         common_keys_set &= set(d.keys())
+#     result = {}
+#     for key in common_keys_set:
+#         values = [d[key] for d in dictionaries]
+#         if all(v == values[0] for v in values):
+#             result[key] = values[0]
+#     return result
+# result1 = common_keys(dict1={'a': 1, 'b': 2}, dict2={'b': 2, 'c': 3})
+# print(result1)
+# result2 = common_keys(dict1={'x': 5, 'y': 6}, dict2={'y': 6, 'z': 7}, dict3={'y': 6, 'w': 8})
+# print(result2)
+#
+#
+# 2а
+# def sort_numbers(numbers, reverse_order=False):
+#     return sorted(numbers, reverse=reverse_order)
+# result1 = sort_numbers([4, 2, 5, 1, 3])
+# print(result1)
+# result2 = sort_numbers([4, 2, 5, 1, 3], reverse_order=True)
+# print(result2)
+#
+#
+# 2б
+# def uppercase_text(text, separator=' '):
+#     words = text.split(separator)
+#     uppercase_words = [word.upper() for word in words]
+#     return separator.join(uppercase_words)
+# result1 = uppercase_text('hello world')
+# print(result1)
+# result2 = uppercase_text('python,java,c++', separator=',')
+# print(result2)
+#
+# 2в
+# def multiply_all(*args):
+#     result = 1
+#     for num in args:
+#         result *= num
+#     return result
+# result1 = multiply_all(1, 2, 3, 4)
+# print(result1)
+# result2 = multiply_all(5, 10)
+# print(result2)
+#
+# 2г
+#
+#
+# def filter_strings(strings, **criteria):
+#     result = []
+#     for s in strings:
+#         valid = True
+#         if 'min_length' in criteria and len(s) < criteria['min_length']:
+#             valid = False
+#         if 'starts_with' in criteria and not s.startswith(criteria['starts_with']):
+#             valid = False
+#         if 'ends_with' in criteria and not s.endswith(criteria['ends_with']):
+#             valid = False
+#         if valid:
+#             result.append(s)
+#     return result
+# result1 = filter_strings(['яблоко', 'вишня', 'киви'], min_length=6)
+# print(result1)
+# result2 = filter_strings(['test', 'text', 'tent'], starts_with='te', ends_with='t')
+# print(result2)
+#
+#
+# 3а
+# def split_string(text, delimiter=' '):
+#     return text.split(delimiter)
+# result1 = split_string('яблоко виноград дыня')
+# print(result1)
+# result2 = split_string('one,two,three', delimiter=',')
+# print(result2)
+#
+# 3б
+# def compare_elements(list1, list2, comparison_function=None):
+#     if comparison_function is None:
+#         comparison_function = lambda x, y: x == y
+#     result = []
+#     min_length = min(len(list1), len(list2))
+#     for i in range(min_length):
+#         if comparison_function(list1[i], list2[i]):
+#             result.append((list1[i], list2[i]))
+#     return result
+# result1 = compare_elements([1, 2, 3], [1, 4, 3])
+# print(result1)
+# result2 = compare_elements([1, 2, 3], [4, 5, 6], comparison_function=lambda x, y: x + y > 5)
+# print(result2)
+#
+# 3в
+# def count_unique_chars(*args):
+#     all_chars = set()
+#     for text in args:
+#         all_chars.update(text)
+#     return len(all_chars)
+# result1 = count_unique_chars('hello', 'world')
+# print(result1)
+# result2 = count_unique_chars('abc', 'def', 'ghi')
+# print(result2)
+#
+# 3г
+# def common_elements(*lists):
+#     if not lists:
+#         return []
+#     result_set = set(lists[0])
+#     for lst in lists[1:]:
+#         result_set &= set(lst)
+#     return list(result_set)
+# result1 = common_elements([1, 2, 3], [2, 3, 4], [3, 4, 5])
+# print(result1)
+# result2 = common_elements(['a', 'b'], ['b', 'c'], ['b', 'd'])
+# print(result2)
+#
+# 4а
+# def calculate(a, b, operation='add'):
+#     if operation == 'add':
+#         return a + b
+#     elif operation == 'subtract':
+#         return a - b
+#     elif operation == 'multiply':
+#         return a * b
+#     elif operation == 'divide':
+#         if b != 0:
+#             return a / b
+#         else:
+#             return "Ошибка: деление на ноль"
+#     else:
+#         return "Неизвестная операция"
+# result1 = calculate(10, 5)
+# print(result1)
+# result2 = calculate(10, 5, operation='multiply')
+# print(result2)
+#
+# 4б
+# def modify_strings(strings, case=None):
+#     if case == 'upper':
+#         return [s.upper() for s in strings]
+#     elif case == 'lower':
+#         return [s.lower() for s in strings]
+#     else:
+#         return strings.copy()
+# result1 = modify_strings(['Hello', 'World'])
+# print(result1)  # ['Hello', 'World']
+# result2 = modify_strings(['Hello', 'World'], case='upper')
+# print(result2)  # ['HELLO', 'WORLD']
+#
+# 4в
+# def average(*args):
+#     if not args:
+#         return 0
+#     return sum(args) / len(args)
+# result1 = average(1, 2, 3, 4, 5)
+# print(result1)
+# result2 = average(10, 20)
+# print(result2)
+#
+# 4г
+# def merge_dictionaries(base_dict, **additional_dicts):
+#     result = base_dict.copy()
+#     for d in additional_dicts.values():
+#         result.update(d)
+#     return result
+# result1 = merge_dictionaries({'a': 1, 'b': 2}, dict1={'b': 3, 'c': 4})
+# print(result1)
+# result2 = merge_dictionaries({'x': 5}, dict1={'y': 6}, dict2={'z': 7})
+# print(result2)
+#
+# 5а
+# def filter_items(items, condition=None):
+#     if condition:
+#         return [item for item in items if condition(item)]
+#     else:
+#         return items.copy()
+# result1 = filter_items([1, 2, 3, 4, 5])
+# print(result1)
+# result2 = filter_items([1, 2, 3, 4, 5], condition=lambda x: x > 3)
+# print(result2)
+#
+# 5б
+# def merge_and_filter(list1, list2, filter_function=None):
+#     merged = list1 + list2
+#     if filter_function:
+#         return [item for item in merged if filter_function(item)]
+#     else:
+#         return merged
+# result1 = merge_and_filter([1, 2], [3, 4])
+# print(result1)
+# result2 = merge_and_filter([1, 2], [3, 4], filter_function=lambda x: x % 2 == 0)
+# print(result2)
+#
+# 5в
+# def common_in_all(*lists):
+#     if not lists:
+#         return []
+#     common_set = set(lists[0])
+#     for lst in lists[1:]:
+#         common_set &= set(lst)
+#     return list(common_set)
+# result1 = common_in_all([1, 2, 3], [2, 3, 4], [3, 4, 5])
+# print(result1)
+# result2 = common_in_all(['яблоко', 'вишня'], ['виноград', 'вишня'], ['вишня', 'дыня'])
+# print(result2)
+#
+# 5г
+# def is_prime(n):
+#     if n < 2:
+#         return False
+#     for i in range(2, int(n**0.5) + 1):
+#         if n % i == 0:
+#             return False
+#     return True
+# def find_primes(*args):
+#     return [num for num in args if is_prime(num)]
+# result1 = find_primes(2, 3, 4, 5, 6, 7)
+# print(result1)
+# result2 = find_primes(10, 15, 17, 19, 23)
+# print(result2)
+#
+# 6а
+# def word_count(text, separator=' '):
+#     words = text.split(separator)
+#     result = {}
+#     for word in words:
+#         result[word] = result.get(word, 0) + 1
+#     return result
+# result1 = word_count('один два один')
+# print(result1)
+# result2 = word_count('red,green,blue,red', separator=',')
+# print(result2)
+#
+# 6б
+# def filter_numbers(numbers, exclude_multiples_of=2):
+#     return [num for num in numbers if num % exclude_multiples_of != 0]
+# result1 = filter_numbers([1, 2, 3, 4, 5])
+# print(result1)
+# result2 = filter_numbers([10, 15, 20, 25], exclude_multiples_of=5)
+# print(result2)
+#
+# 6в
+#     merged = {}
+#     for d in dicts:
+#         for key, value in d.items():
+#             merged[key] = max(merged.get(key, float('-inf')), value)
+#     sorted_keys = sorted(merged.keys(), key=lambda k: merged[k], reverse=True)
+#     return sorted_keys
+# result1 = merge_and_sort_keys({'a': 2, 'b': 3}, {'a': 5, 'c': 1})
+# print(result1)
+# result2 = merge_and_sort_keys({'x': 10}, {'y': 5}, {'z': 15})
+# print(result2)
+#
+# 6г
+# def sum_non_negative(*args):
+#     return sum(num for num in args if num >= 0)
+# result1 = sum_non_negative(1, -2, 3, -4, 5)
+# print(result1)
+# result2 = sum_non_negative(-10, -20)
+# print(result2)
+#
+# 7а
+# def join_strings(strings, delimiter=','):
+#     return delimiter.join(strings)
+# result1 = join_strings(['один', 'два', 'три'])
+# print(result1)
+# result2 = join_strings(['sun', 'moon', 'stars'], delimiter=' | ')
+# print(result2)
+#
+# 7б
+# def combine_lists(list1, list2, join_str=''):
+#     result = []
+#     for i in range(min(len(list1), len(list2))):
+#         result.append(str(list1[i]) + join_str + str(list2[i]))
+#     return result
+# result1 = combine_lists(['a', 'b'], ['1', '2'])
+# print(result1)
+# result2 = combine_lists(['x', 'y'], ['10', '20'], join_str='-')
+# print(result2)
+#
+# 7в
+# def unique_values(*args):
+#     seen = set()
+#     result = []
+#     for arg in args:
+#         if arg not in seen:
+#             seen.add(arg)
+#             result.append(arg)
+#     return result
+# result1 = unique_values(1, 2, 2, 3, 3, 3)
+# print(result1)
+# result2 = unique_values('a', 'b', 'a', 'c', 'b')
+# print(result2)
+#
+# 7г
+# def reverse_concatenate(*args):
+#     return ' '.join(args[::-1])
+# result1 = reverse_concatenate('one', 'two', 'three')
+# print(result1)
+# result2 = reverse_concatenate('hello', 'world')
+# print(result2)
+#
+# 8а
+# def pair_and_filter(list1, list2, filter_function=None):
+#     result = []
+#     for x in list1:
+#         for y in list2:
+#             if filter_function is None or filter_function(x, y):
+#                 result.append((x, y))
+#     return result
+# result1 = pair_and_filter([1, 2], [3, 4])
+# print(result1)
+# result2 = pair_and_filter([1, 2], [3, 4], filter_function=lambda x, y: (x + y) % 2 == 0)
+# print(result2)
+#
+# 8б
+# def concat_or_upper(strings, uppercase=False):
+#     text = ' '.join(strings)
+#     if uppercase:
+#         return text.upper()
+#     else:
+#         return text
+# result1 = concat_or_upper(['hello', 'world'])
+# print(result1)
+# result2 = concat_or_upper(['hello', 'world'], uppercase=True)
+# print(result2)
+#
+# 8в
+# def filter_uppercase_strings(strings):
+#     return [s for s in strings if s.isupper()]
+# result1 = filter_uppercase_strings(['HELLO', 'World', 'BYE'])
+# print(result1)
+# result2 = filter_uppercase_strings(['Python', 'JAVA', 'c++'])
+# print(result2)
+#
+# 8г
+# def unique_sorted_elements(*lists):
+#     unique_set = set()
+#     for lst in lists:
+#         unique_set.update(lst)
+#     return sorted(unique_set)
+# result1 = unique_sorted_elements([3, 1], [2, 3], [1, 4])
+# print(result1)
+# result2 = unique_sorted_elements(['b', 'a'], ['c', 'a'], ['d', 'b'])
+# print(result2)
+#
+# 9а
+# def capitalize_words(text, separator=' '):
+#     words = text.split(separator)
+#     capitalized_words = [word.capitalize() for word in words]
+#     return separator.join(capitalized_words)
+# result1 = capitalize_words('hello world')
+# print(result1)
+# result2 = capitalize_words('python,java,c++', separator=',')
+# print(result2)
+#
+# 9б
+# def filter_elements(list1, list2, filter_function=None):
+#     combined = list1 + list2
+#     if filter_function:
+#         return [item for item in combined if filter_function(item)]
+#     else:
+#         return combined
+# result1 = filter_elements([1, 2, 3], [4, 5, 6])
+# print(result1)
+# result2 = filter_elements([1, 2, 3], [4, 5, 6], filter_function=lambda x: x > 3)
+# print(result2)
+#
+# 9в
+# def merge_dictionaries(*dicts):
+#     result = {}
+#     for d in dicts:
+#         result.update(d)
+#     return result
+# result1 = merge_dictionaries({'a': 1}, {'b': 2}, {'a': 3})
+# print(result1)
+# result2 = merge_dictionaries({'x': 5}, {'y': 6}, {'z': 7}, {'x': 8})
+# print(result2)
+#
+# 9г
+# def unique_keys(*dicts):
+#     result = {}
+#     key_values = {}
+#     for d in dicts:
+#         for key, value in d.items():
+#             if key not in key_values:
+#                 key_values[key] = {}
+#             key_values[key][value] = key_values[key].get(value, 0) + 1
+#     for key in key_values:
+#         for value, count in key_values[key].items():
+#             if count == 1:
+#                 result[key] = value
+#     return result
+# result1 = unique_keys({'a': 1, 'b': 2}, {'b': 3, 'c': 4})
+# print(result1)
+# result2 = unique_keys({'x': 5}, {'y': 6}, {'z': 7}, {'x': 8})
+# print(result2)
+#
+# 10а
+# def filter_numbers(numbers, condition=None):
+#     if condition:
+#         return [num for num in numbers if condition(num)]
+#     else:
+#         return numbers.copy()
+# result1 = filter_numbers([1, 2, 3, 4, 5])
+# print(result1)
+# result2 = filter_numbers([1, 2, 3, 4, 5], condition=lambda x: x % 2 == 0)
+# print(result2)
+#
+# 10б
+# def transform_numbers(numbers, transform_function=None):
+#     if transform_function:
+#         return [transform_function(num) for num in numbers]
+#     else:
+#         return numbers.copy()
+# result1 = transform_numbers([1, 2, 3])
+# print(result1)
+# result2 = transform_numbers([1, 2, 3], transform_function=lambda x: x ** 3)
+# print(result2)
+#
+# 10в
+# def cube_numbers(*lists):
+#     result = []
+#     for lst in lists:
+#         result.extend([num ** 3 for num in lst])
+#     return result
+# result1 = cube_numbers([1, 2], [3, 4])
+# print(result1)
+# result2 = cube_numbers([5], [6, 7], [8])
+# print(result2)
+#
+# 10г
+# def product_non_zero(*args):
+#     result = 1
+#     found_non_zero = False
+#     for num in args:
+#         if num != 0:
+#             result *= num
+#             found_non_zero = True
+#     return result if found_non_zero else 1
+# result1 = product_non_zero(1, 2, 0, 4)
+# print(result1)
+# result2 = product_non_zero(0, 0, 0)
+# print(result2)
+#
+#
+# 11а
+# def format_strings(strings, separator=' '):
+#     words = [word.capitalize() for word in strings]
+#     return separator.join(words)
+# format_strings(['hello', 'world']) → 'Hello World'
+# format_strings(['good', 'morning'], separator='-') → 'Good-Morning'
+#
+#
+# 11б
+# def merge_and_sort(list1, list2, sort_function=None):
+#     combined = list1 + list2
+#     if sort_function:
+#         return sorted(combined, key=sort_function)
+#     else:
+#         return sorted(combined)
+# merge_and_sort([3, 1], [4, 2]) → [1, 2, 3, 4]
+# merge_and_sort([3, 1], [4, 2], sort_function=lambda x: -x) → [4, 3, 2, 1]
+#
+#
+# 11в
+# def concat_all_strings(*lists):
+#     all_strings = []
+#     for lst in lists:
+#         all_strings.extend(lst)
+#     return ','.join(all_strings)
+# concat_all_strings(['a', 'b'], ['c', 'd']) → 'a,b,c,d'
+# concat_all_strings(['вишня'], ['банан', 'дыня'], ['киви']) → 'вишня,банан,дыня,киви'
+#
+#
+# 11г
+# def unique_sorted_strings(*args):
+#     unique_set = set(args)
+#     return sorted(list(unique_set))
+# unique_sorted_strings('виноград', 'яблоко', 'тыква', 'яблоко') → ['виноград', 'тыква', 'яблоко']
+# unique_sorted_strings('x', 'z', 'y', 'x', 'y') → ['x', 'y', 'z']
+#
+#
+# 12а
+# def combine_lists(list1, list2, order='first_second'):
+#     if order == 'first_second':
+#         return list1 + list2
+#     else:
+#         return list2 + list1
+# combine_lists([1, 2], [3, 4]) → [1, 2, 3, 4]
+# combine_lists([1, 2], [3, 4], order='second_first') → [3, 4, 1, 2]
+#
+#
+# 12б
+# def process_string(text, separator=None):
+#     if separator:
+#         words = text.split(separator)
+#         words = [word.capitalize() for word in words]
+#         return separator.join(words)
+#     else:
+#         return text.lower()
+# process_string('HELLO WORLD') → 'hello world'
+# process_string('python_java_c++', separator='_') → 'Python_Java_C++'
+#
+#
+# 12в
+# def difference(first_list, *other_lists):
+#     result = []
+#     for item in first_list:
+#         found = False
+#         for other_list in other_lists:
+#             if item in other_list:
+#                 found = True
+#                 break
+#         if not found:
+#             result.append(item)
+#     return result
+# difference([1, 2, 3], [2, 3, 4], [3, 4, 5]) → [1]
+# difference(['a', 'b', 'c'], ['b', 'c'], ['c']) → ['a']
+#
+#
+#
+# 12г
+# def common_in_at_least_two(*lists):
+#     from collections import Counter
+#     all_items = []
+#     for lst in lists:
+#         all_items.extend(lst)
+#     item_counts = Counter(all_items)
+#     result = [item for item, count in item_counts.items() if count >= 2]
+#     return result
+# common_in_at_least_two([1, 2], [2, 3], [2, 4]) → [2]
+# common_in_at_least_two(['a', 'b'], ['b', 'c'], ['b', 'd']) → ['b']
+#
+#
+#
+# 13а
+# def divisible_by(numbers, divisor=2):
+#     return [num for num in numbers if num % divisor == 0]
+# divisible_by([1, 2, 3, 4, 5]) → [2, 4]
+# divisible_by([10, 15, 20, 25], divisor=5) → [10, 15, 20, 25]
+#
+#
+# 13б
+# def transform_numbers(numbers, transform_function=None):
+#     if transform_function:
+#         return [transform_function(num) for num in numbers]
+#     else:
+#         return [num for num in numbers if num >= 0]
+# transform_numbers([1, -2, 3, -4]) → [1, 3]
+# transform_numbers([1, 2, 3], transform_function=lambda x: x ** 2) → [1, 4, 9]
+#
+#
+# 13в
+# def sorted_values_by_keys(*dicts):
+#     merged = {}
+#     for d in dicts:
+#         merged.update(d)
+#     sorted_keys = sorted(merged.keys(), key=lambda x: int(x) if x.isdigit() else x)
+#     return [merged[key] for key in sorted_keys]
+# sorted_values_by_keys({'2': 'b', '1': 'a'}, {'4': 'd', '3': 'c'}) → ['a', 'b', 'c', 'd']
+# sorted_values_by_keys({'10': 'j'}, {'5': 'e', '15': 'o'}) → ['e', 'j', 'o']
+#
+#
+#
+# 13г
+# def common_keys_in_dicts(*dicts):
+#     if not dicts:
+#         return {}
+#     common_keys = set(dicts[0].keys())
+#     for d in dicts[1:]:
+#         common_keys &= set(d.keys())
+#     result = {}
+#     for key in common_keys:
+#         result[key] = dicts[-1][key]
+#     return result
+# common_keys_in_dicts({'a': 1, 'b': 2}, {'b': 3, 'c': 4}) → {'b': 3}
+# common_keys_in_dicts({'x': 5, 'y': 6}, {'y': 7, 'z': 8}, {'y': 9, 'w': 10}) → {'y': 9}
+#
+#
+#
+# 14а
+# def merge_lists_with(list1, list2, merge_function=None):
+#     if merge_function:
+#         result = []
+#         for i in range(min(len(list1), len(list2))):
+#             result.append(merge_function(list1[i], list2[i]))
+#         return result
+#     else:
+#         return list1 + list2
+# merge_lists_with([1, 2], [3, 4]) → [1, 2, 3, 4]
+# merge_lists_with([1, 2], [3, 4], merge_function=lambda x, y: x + y) → [4, 6]
+#
+#
+#
+# 14б
+# def extract_digits(strings, digits_only=False):
+#     if digits_only:
+#         result = []
+#         for s in strings:
+#             digits = ''.join(filter(str.isdigit, s))
+#             result.append(digits)
+#         return result
+#     else:
+#         return strings
+# extract_digits(['a1b2', 'c3d4']) → ['a1b2', 'c3d4']
+# extract_digits(['a1b2', 'c3d4'], digits_only=True) → ['12', '34']
+#
+#
+# 14в
+# def filter_even_numbers(*args):
+#     return [num for num in args if num % 2 == 0]
+# filter_even_numbers(1, 2, 3, 4, 5, 6) → [2, 4, 6]
+# filter_even_numbers(7, 9, 11) → []
+#
+#
+#
+# 14г
+# def sorted_positive_numbers(*args):
+#     positive = [num for num in args if num > 0]
+#     return sorted(positive, reverse=True)
+# sorted_positive_numbers(-1, 3, -5, 7, 0) → [7, 3]
+# sorted_positive_numbers(-10, -20) → []
+#
+#
+#
+# 15а
+# def change_case(strings, to_upper=False):
+#     text = ' '.join(strings)
+#     if to_upper:
+#         return text.upper()
+#     else:
+#         return text.lower()
+# change_case(['Hello', 'World']) → 'hello world'
+# change_case(['Hello', 'World'], to_upper=True) → 'HELLO WORLD'
+#
+#
+#
+# 15б
+# def filter_combined_lists(list1, list2, filter_function=None):
+#     combined = list1 + list2
+#     if filter_function:
+#         return [item for item in combined if filter_function(item)]
+#     else:
+#         return combined
+# filter_combined_lists([2, 4], [6, 8]) → [2, 4, 6, 8]
+# filter_combined_lists([2, 4], [6, 8], filter_function=lambda x: x > 5) → [6, 8]
+#
+#
+# 15в
+# def unique_sorted_numbers(numbers):
+#     unique = []
+#     for num in numbers:
+#         if num not in unique:
+#             unique.append(num)
+#     return sorted(unique)
+# unique_sorted_numbers([3, 1, 2, 3, 4, 2]) → [1, 2, 3, 4]
+# unique_sorted_numbers([5, 5, 5, 5]) → [5]
+#
+#
+#
+# 15г
+# def strings_starting_with_upper(*args):
+#     result = []
+#     for s in args:
+#         if s and s[0].isupper():
+#             result.append(s)
+#     return result
+# strings_starting_with_upper('Apple', 'banana', 'Cherry') → ['Apple', 'Cherry']
+# strings_starting_with_upper('dog', 'Elephant', 'fox') → ['Elephant']
