@@ -1,0 +1,166 @@
+# 1
+# def Mean(X, Y):
+#     AMean = (X + Y) / 2
+#     GMean = (X * Y) ** 0.5  # квадратный корень
+#     return AMean, GMean
+# result = Mean(4, 9)
+# print(f"AMean = {result[0]}, GMean = {result[1]}")
+
+# 2
+# import math
+#
+# def Circle(R):
+#     S = math.pi * R ** 2
+#     L = 2 * math.pi * R
+#     return S, L
+# area, length = Circle(5)
+# print(f"Площадь = {area}, Длина окружности = {length}")
+
+# 3
+# def TrianglePS(a):
+#     """Вычисляет периметр и площадь равностороннего треугольника"""
+#     P = 3 * a
+#     S = (math.sqrt(3) / 4) * a ** 2
+#     return P, S
+# perimeter, area = TrianglePS(6)
+# print(f"Периметр = {perimeter}, Площадь = {area}")
+
+# 4
+# def RingS(R1, R2):
+#     """Находит площадь кольца между двумя окружностями с общим центром"""
+#     S = math.pi * abs(R1 ** 2 - R2 ** 2)
+#     return S
+# area = RingS(8, 5)
+# print(f"Площадь кольца = {area}")
+
+# 5
+# def RectPS(x1, y1, x2, y2):
+#     width = abs(x2 - x1)
+#     height = abs(y2 - y1)
+#     P = 2 * (width + height)
+#     S = width * height
+#     return P, S
+# perimeter, area = RectPS(0, 0, 4, 3)
+# print(f"Периметр = {perimeter}, Площадь = {area}")
+
+# 6
+# def TriangleP(a, h):
+#     """Находит периметр равнобедренного треугольника по основанию и высоте"""
+#     b = math.sqrt((a / 2) ** 2 + h ** 2)  # боковая сторона
+#     P = a + 2 * b
+#     return P
+# perimeter = TriangleP(6, 4)
+# print(f"Периметр = {perimeter}")
+
+# 7
+# def TriangleP(a, h):
+#     """Находит периметр равнобедренного треугольника по основанию и высоте"""
+#     b = math.sqrt((a / 2) ** 2 + h ** 2)  # боковая сторона
+#     P = a + 2 * b
+#     return P
+# perimeter = TriangleP(6, 4)
+# print(f"Периметр = {perimeter}")
+
+# 8
+# def SumRange(A, B):
+#     """Находит сумму всех целых чисел от A до B включительно"""
+#     if A > B:
+#         return 0
+#     total = sum(range(A, B + 1))
+#     return total
+# total_sum = SumRange(1, 5)
+# print(f"Сумма = {total_sum}")
+#
+# 9
+# def TypeTrl(x1, y1, x2, y2, x3, y3):
+#     a = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+#     b = math.sqrt((x3 - x2) ** 2 + (y3 - y2) ** 2)
+#     c = math.sqrt((x1 - x3) ** 2 + (y1 - y3) ** 2)
+#     if a + b <= c or a + c <= b or b + c <= a:
+#         return "Не треугольник"
+#     sides = sorted([a, b, c])
+#     is_right = abs(sides[0] ** 2 + sides[1] ** 2 - sides[2] ** 2) < 0.0001
+#     if abs(a - b) < 0.0001 and abs(b - c) < 0.0001:
+#         return "Равносторонний"
+#     elif abs(a - b) < 0.0001 or abs(a - c) < 0.0001 or abs(b - c) < 0.0001:
+#         if is_right:
+#             return "Прямоугольный равнобедренный"
+#         else:
+#             return "Равнобедренный"
+#     elif is_right:
+#         return "Прямоугольный"
+#     else:
+#         return "Обычный"
+# triangle_type = TypeTrl(0, 0, 0, 4, 3, 0)
+# print(f"Тип треугольника: {triangle_type}")
+#
+# 10
+# def Quarter(x, y):
+#     if x > 0 and y > 0:
+#         return 1
+#     elif x < 0 and y > 0:
+#         return 2
+#     elif x < 0 and y < 0:
+#         return 3
+#     elif x > 0 and y < 0:
+#         return 4
+#     else:
+#         return "Точка на оси"
+# quarter = Quarter(3, -5)
+# print(f"Точка находится в {quarter} четверти")
+#
+# 11
+# def DigitCountSum(K):
+#     digits = str(K)
+#     count = len(digits)
+#     total = sum(int(digit) for digit in digits)
+#     return count, total
+# count, total = DigitCountSum(12345)
+# print(f"Количество цифр = {count}, Сумма = {total}")
+#
+# 12
+# def Calc(A, B, Op):
+#     if Op == 1:
+#         return A - B
+#     elif Op == 2:
+#         return A * B
+#     elif Op == 3:
+#         if B != 0:
+#             return A / B
+#         else:
+#             return "Ошибка: деление на ноль"
+#     else:
+#         return A + B
+# result = Calc(10, 5, 1)
+# print(f"Результат: {result}")
+#
+# 13
+# def LuckyNum(num):
+#     num_str = str(num).zfill(4)
+#     first_sum = int(num_str[0]) + int(num_str[1])
+#     second_sum = int(num_str[2]) + int(num_str[3])
+#     return first_sum == second_sum
+# lucky_numbers = [num for num in range(1000, 10000) if LuckyNum(num)]
+# print(f"Всего счастливых номеров: {len(lucky_numbers)}")
+# print(f"Первые 10: {lucky_numbers[:10]}")
+#
+# 14
+# def DegToRad(D):
+#     if 0 < D < 360:
+#         return D * math.pi / 180
+#     else:
+#         return "Угол должен быть в диапазоне (0, 360)"
+# radians = DegToRad(180)
+# print(f"180 градусов = {radians} радиан")
+#
+# 15
+# def IsLeapYear(Y):
+#     if (Y % 4 == 0 and Y % 100 != 0) or (Y % 400 == 0):
+#         return True
+#     else:
+#         return False
+# year = 2024
+# if IsLeapYear(year):
+#     print(f"{year} - високосный год")
+# else:
+#     print(f"{year} - не високосный год")
