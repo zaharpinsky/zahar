@@ -1,0 +1,240 @@
+# # 1
+# def copy_last_k_lines():
+#     try:
+#         with open('input.txt', 'r', encoding='utf-8') as f:
+#             lines = f.readlines()
+#         K = 3
+#         with open('output1.txt', 'w', encoding='utf-8') as f:
+#             f.writelines(lines[-K:])
+#         print(f"Файл output1.txt создан с {K} последними строками")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл input.txt")
+#
+#
+# # 2
+# def delete_last_k_lines():
+#     try:
+#         with open('input.txt', 'r', encoding='utf-8') as f:
+#             lines = f.readlines()
+#         K = 2
+#         with open('output2.txt', 'w', encoding='utf-8') as f:
+#             f.writelines(lines[:-K])
+#         print(f"Файл output2.txt создан без {K} последних строк")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл input.txt")
+#
+#
+# # 3
+# def remove_first_k_chars():
+#     try:
+#         with open('input.txt', 'r', encoding='utf-8') as f:
+#             lines = f.readlines()
+#         K = 3  # Можно изменить K
+#         with open('output3.txt', 'w', encoding='utf-8') as f:
+#             for line in lines:
+#                 if len(line) > K:
+#                     f.write(line[K:])
+#                 else:
+#                     f.write('')
+#         print(f"Файл output3.txt создан без первых {K} символов в каждой строке")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл input.txt")
+#
+#
+# # 4
+# def append_lines():
+#     try:
+#         with open('file1.txt', 'r', encoding='utf-8') as f:
+#             lines1 = f.readlines()
+#         with open('file2.txt', 'r', encoding='utf-8') as f2:
+#             lines2 = f2.readlines()
+#         with open('output4.txt', 'w', encoding='utf-8') as f:
+#             for i in range(len(lines1)):
+#                 line1 = lines1[i].rstrip('\n')
+#                 if i < len(lines2):
+#                     line2 = lines2[i].rstrip('\n')
+#                     f.write(f"{line1}{line2}\n")
+#                 else:
+#                     f.write(f"{line1}\n")
+#         print("Файл output4.txt создан")
+#     except FileNotFoundError:
+#         print("Создайте файлы file1.txt и file2.txt")
+#
+#
+# # 5
+# def delete_line():
+#     try:
+#         with open('input.txt', 'r', encoding='utf-8') as f:
+#             lines = f.readlines()
+#         K = 2
+#         if 1 <= K <= len(lines):
+#             lines.pop(K - 1)
+#         with open('output5.txt', 'w', encoding='utf-8') as f:
+#             f.writelines(lines)
+#         print(f"Файл output5.txt создан без строки {K}")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл input.txt")
+#
+#
+# # 6
+# def punctuation_file():
+#     try:
+#         with open('text.txt', 'r', encoding='utf-8') as f:
+#             content = f.read()
+#         punct = ''
+#         for char in content:
+#             if char in '.,!?;:"\'()[]{}<>-–—':
+#                 punct += char
+#         with open('punctuation.txt', 'w', encoding='utf-8') as f:
+#             f.write(punct)
+#         print("Файл punctuation.txt создан со знаками препинания")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл text.txt")
+#
+#
+# # 7
+# def count_numbers():
+#     try:
+#         with open('numbers.txt', 'r', encoding='utf-8') as f:
+#             total = 0
+#             count = 0
+#             for line in f:
+#                 num_str = line.strip()
+#                 if num_str:
+#                     try:
+#                         num = int(num_str)
+#                         total += num
+#                         count += 1
+#                     except:
+#                         pass
+#         print(f"Количество чисел: {count}")
+#         print(f"Сумма чисел: {total}")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл numbers.txt")
+#
+#
+# # 8
+# def replace_empty():
+#     try:
+#         S = "ЗАМЕНА"
+#         with open('input.txt', 'r', encoding='utf-8') as f:
+#             lines = f.readlines()
+#         with open('output8.txt', 'w', encoding='utf-8') as f:
+#             for line in lines:
+#                 if line.strip() == '':
+#                     f.write(f"{S}\n")
+#                 else:
+#                     f.write(line)
+#         print("Файл output8.txt создан с заменой пустых строк")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл input.txt")
+#
+#
+# # 9
+# def center_align():
+#     try:
+#         WIDTH = 50
+#         with open('input.txt', 'r', encoding='utf-8') as f:
+#             lines = [line.rstrip('\n') for line in f]
+#         with open('output9.txt', 'w', encoding='utf-8') as f:
+#             for line in lines:
+#                 if line.strip() == '':
+#                     f.write('\n')
+#                 else:
+#                     if len(line) % 2 == 1:
+#                         line = ' ' + line
+#                     spaces = (WIDTH - len(line)) // 2
+#                     f.write(' ' * spaces + line + '\n')
+#         print("Файл output9.txt создан с выравниванием по центру")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл input.txt")
+#
+#
+# # 10
+# def count_paragraphs():
+#     try:
+#         with open('text.txt', 'r', encoding='utf-8') as f:
+#             content = f.read()
+#         paragraphs = content.strip().split('\n\n')
+#         paragraphs = [p for p in paragraphs if p.strip()]
+#         print(f"Количество абзацев: {len(paragraphs)}")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл text.txt")
+#
+#
+# # 11
+# def right_align():
+#     try:
+#         WIDTH = 50
+#         with open('input.txt', 'r', encoding='utf-8') as f:
+#             lines = [line.rstrip('\n') for line in f]
+#         with open('output11.txt', 'w', encoding='utf-8') as f:
+#             for line in lines:
+#                 if line.strip() == '':
+#                     f.write('\n')
+#                 else:
+#                     spaces = WIDTH - len(line)
+#                     f.write(' ' * spaces + line + '\n')
+#         print("Файл output11.txt создан с выравниванием по правому краю")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл input.txt")
+#
+#
+# # 12
+# def prepend_file():
+#     try:
+#         with open('file2.txt', 'r', encoding='utf-8') as f:
+#             content2 = f.read()
+#         with open('file1.txt', 'r', encoding='utf-8') as f:
+#             content1 = f.read()
+#         with open('output12.txt', 'w', encoding='utf-8') as f:
+#             f.write(content2 + content1)
+#         print("Файл output12.txt создан")
+#     except FileNotFoundError:
+#         print("Создайте файлы file1.txt и file2.txt")
+#
+#
+# # 13
+# def insert_empty_line():
+#     try:
+#         K = 3
+#         with open('input.txt', 'r', encoding='utf-8') as f:
+#             lines = f.readlines()
+#         if 1 <= K <= len(lines):
+#             lines.insert(K - 1, '\n')
+#         with open('output13.txt', 'w', encoding='utf-8') as f:
+#             f.writelines(lines)
+#         print(f"Файл output13.txt создан с пустой строкой перед строкой {K}")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл input.txt")
+#
+#
+# # 14
+# def duplicate_empty():
+#     try:
+#         with open('input.txt', 'r', encoding='utf-8') as f:
+#             lines = f.readlines()
+#         with open('output14.txt', 'w', encoding='utf-8') as f:
+#             for line in lines:
+#                 f.write(line)
+#                 if line.strip() == '':
+#                     f.write(line)
+#         print("Файл output14.txt создан с дублированием пустых строк")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл input.txt")
+#
+#
+# # 15
+# def remove_first_last():
+#     try:
+#         with open('input.txt', 'r', encoding='utf-8') as f:
+#             lines = f.readlines()
+#
+#         if len(lines) >= 2:
+#             lines = lines[1:-1]
+#
+#         with open('output15.txt', 'w', encoding='utf-8') as f:
+#             f.writelines(lines)
+#         print("Файл output15.txt создан без первой и последней строк")
+#     except FileNotFoundError:
+#         print("Создайте сначала файл input.txt")
