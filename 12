@@ -1,0 +1,99 @@
+#1
+t = tuple(input().split())
+print(t)
+d = {s: sum(1 for c in s if c.isupper()) for s in t}
+print(d)
+#2
+t = ("text", 42, [1, 2], 3.5, True)
+print(t)
+lst = [("hi", 1), ([1, 2], 3.5), (7, "ok")]
+types = {}
+for x, y in lst:
+    for e in (x, y):
+        types.setdefault(type(e), []).append(e)
+print(types)
+#3
+t = tuple(map(int, input().split()))
+print(t[0])
+rev = tuple(x for x in reversed(t) if x % 3 != 0)
+print(rev)
+#4
+pairs = [(1, "a"), (3, "c"), (2, "b")]
+d = dict(sorted(pairs, key=lambda x: x[1]))
+print(d)
+t = (1, 2, 3)
+a, b, c = t
+print(a, b, c)
+#5
+t = (1, 2, 3)
+t = t + (int(input()),)
+print(t)
+print(tuple(s[::-1] for s in map(str, t)))
+#6
+t = (1, 2, 3)
+sep = input()
+print(sep.join(map(str, t)))
+val = input()
+lst = [(1, 2), (3, "a"), (4, 5)]
+lst = [(*x[:-1], val) if isinstance(x[-1], (int, float)) else x for x in lst]
+print(lst)
+#7
+t = (1, 2, 3, 4, 5, 6, 7)
+print(t[3], t[-4])
+import random
+lst = [(1,), (), (2, 3), ()]
+lst = [t if t else (random.randint(1, 9),) for t in lst]
+print(lst)
+#8
+t = tuple({"name": input(), "age": int(input())} for _ in range(2))
+print(t)
+t = ({"a": 3.5}, {"a": 1.2}, {"a": 5.0})
+t = tuple(sorted(t, key=lambda x: list(x.values())[0], reverse=True))
+print(t)
+#9
+t = tuple(input().split())
+dup = {x for x in t if t.count(x) > 1}
+print(dup)
+lst = [1, 2, (3,), 4]
+s = sum(x for x in lst if not isinstance(x, tuple))
+print(s)
+#10
+t = tuple(input().split())
+x = input()
+print(t.count(x))
+t = tuple(dict.fromkeys(input().split()))
+print(t)
+#11
+t = tuple(input().split())
+print(tuple(t))
+t = tuple(map(int, input().split()))
+res = 1
+for x in t:
+    if x % 2 == 0: res *= x
+print(res)
+#12
+t = tuple(input().split())
+x = input()
+t = tuple(e for e in t if e != x)
+print(t)
+data = ((1, 6, 8), (3, 9, 4))
+print(tuple(sum(i for i in t if i > 5)/len([i for i in t if i > 5]) for t in data))
+#13
+t = eval(input())
+a, b = map(int, input().split())
+print(tuple(x for x in t[a:b] if not isinstance(x, str)))
+t = tuple(input().split())
+print(tuple(int(x) for x in t if int(x) >= 0))
+#14
+t = tuple(map(int, input().split()))
+x = int(input())
+nums = [n for n in t if isinstance(n, int)]
+print(nums.index(x) if x in nums else -1)
+t = tuple(map(int, input().split()))
+print(int("".join(str(x) for x in t if x % 3 == 0)))
+#15
+t = tuple(input().split())
+print(sum(1 for x in t if isinstance(x, str)))
+data = ((1, "a"), (2, "b"), (1, "a"))
+x = input()
+print(sum(1 for t in data if x in t))
