@@ -1,0 +1,196 @@
+# 1
+# def Fact(N):
+#     if N == 0 or N == 1:
+#         return 1
+#     return N * Fact(N-1)
+# def Fact2(N):
+#     if N <= 0:
+#         return 1
+#     if N == 1 or N == 2:
+#         return N
+#     return N * Fact2(N-2)
+# print(Fact(5))
+# print(Fact2(5))
+#
+#
+# 2
+# def PowerN(x, n):
+#     if n == 0:
+#         return 1
+#     if n > 0:
+#         return x * PowerN(x, n-1)
+#     else:
+#         return 1 / PowerN(x, -n)
+# print(PowerN(2, 3))
+# print(PowerN(2, -3))
+#
+#
+# 3
+# def SqrtK(x, k, n):
+#     if n == 0:
+#         return 1
+#     y_prev = SqrtK(x, k, n-1)
+#     return y_prev - (y_prev - x / (y_prev**(k-1))) / k
+# print(SqrtK(27, 3, 10))
+#
+#
+#
+# 4
+# call_count = 0
+# def FibRec(N):
+#     global call_count
+#     call_count += 1
+#     if N == 1 or N == 2:
+#         return 1
+#     return FibRec(N-2) + FibRec(N-1)
+# numbers = [5, 10, 15, 20, 25]
+# for n in numbers:
+#     call_count = 0
+#     result = FibRec(n)
+#     print(f"F({n}) = {result}, вызовов: {call_count}")
+#
+#
+#
+# 5
+# calls = 0
+# def C(m, n):
+#     global calls
+#     calls += 1
+#     if m == 0 or m == n:
+#         return 1
+#     return C(m, n-1) + C(m-1, n-1)
+# N = 10
+# M_values = [2, 3, 4, 5, 6]
+# for M in M_values:
+#     calls = 0
+#     result = C(M, N)
+#     print(f"C({M}, {N}) = {result}, вызовов: {calls}")
+#
+#
+# 6
+# def NOD(A, B):
+#     if A == 0:
+#         return B
+#     return NOD(B % A, A)
+# A = 36
+# B = 48
+# C = 60
+# D = 72
+# print(NOD(A, B))
+# print(NOD(A, C))
+# print(NOD(A, D))
+#
+#
+#
+# 7
+# def MinRec(A, N):
+#     if N == 1:
+#         return A[0]
+#     min_rest = MinRec(A, N-1)
+#     return A[N-1] if A[N-1] < min_rest else min_rest
+# arr1 = [5, 2, 8, 1, 9]
+# arr2 = [10, 3, 7, 4, 6]
+# arr3 = [15, 12, 18, 11, 19]
+# print(MinRec(arr1, len(arr1)))
+# print(MinRec(arr2, len(arr2)))
+# print(MinRec(arr3, len(arr3)))
+#
+#
+#
+# 8
+# def Digits(S):
+#     if S == "":
+#         return 0
+#     if S[0].isdigit():
+#         return 1 + Digits(S[1:])
+#     return Digits(S[1:])
+# text = "abc123def45"
+# print(Digits(text))
+#
+#
+#
+# 9
+# def Simm(S):
+#     if len(S) <= 1:
+#         return True
+#     if S[0] != S[-1]:
+#         return False
+#     return Simm(S[1:-1])
+# text = "radar"
+# print(Simm(text))
+#
+#
+#
+# 10
+# def add_binary(a, b, carry=0):
+#     if a == "" and b == "":
+#         return "" if carry == 0 else "1"
+#     bit_a = int(a[-1]) if a else 0
+#     bit_b = int(b[-1]) if b else 0
+#     s = bit_a + bit_b + carry
+#     result_bit = str(s % 2)
+#     new_carry = s // 2
+#     return add_binary(a[:-1], b[:-1], new_carry) + result_bit
+# binary1 = "1011"
+# binary2 = "1101"
+# result = add_binary(binary1, binary2)
+# print(result)
+#
+#
+#
+# 11
+# def f(x):
+#     return x**2 - 4
+# def Root(a, b, eps):
+#     mid = (a + b) / 2
+#     if abs(f(mid)) < eps or (b - a) < eps:
+#         return mid
+#     if f(a) * f(mid) < 0:
+#         return Root(a, mid, eps)
+#     else:
+#         return Root(mid, b, eps)
+# print(Root(0, 3, 0.0001))
+#
+#
+#
+# 12
+# def reverse_number(n, reversed_n=0):
+#     if n == 0:
+#         return reversed_n
+#     return reverse_number(n // 10, reversed_n * 10 + n % 10)
+# print(reverse_number(12345))
+#
+#
+#
+# 13
+# def Simm(S, i, j):
+#     if i >= j:
+#         return True
+#     if S[i] != S[j]:
+#         return False
+#     return Simm(S, i+1, j-1)
+# text = "abcdefedcba"
+# print(Simm(text, 0, len(text)-1))
+# print(Simm(text, 2, 8))
+#
+#
+#
+# 14
+# def sum_digits(N):
+#     if N == 0:
+#         return 0
+#     return N % 10 + sum_digits(N // 10)
+# print(sum_digits(12345))
+#
+#
+#
+# 15
+# def is_palindrome(word, left=0):
+#     right = len(word) - 1 - left
+#     if left >= right:
+#         return "yes"
+#     if word[left] != word[right]:
+#         return "no"
+#     return is_palindrome(word, left+1)
+# print(is_palindrome("radar"))
+# print(is_palindrome("hello"))
